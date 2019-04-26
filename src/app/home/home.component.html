@@ -1,0 +1,35 @@
+<div *ngFor="let actor of actors" class="d-inline-flex ml-3 mt-3">
+  <div class="col-3">
+    <div class="card" style="width: 19rem;">
+      <img
+        src="../../assets/{{ actor.image }}"
+        class="card-img-top"
+        alt="..."
+      />
+      <div class="card-body">
+        <h5 class="card-title m-0">
+          {{ actor.name }}
+          <i
+            *ngIf="actorsService.isFavorite(actor.id) === false"
+            (click)="actorsService.toggleFavorites(actor)"
+            class="far fa-star"
+          ></i>
+          <i
+            *ngIf="actorsService.isFavorite(actor.id) === true"
+            (click)="actorsService.toggleFavorites(actor)"
+            class="fas fa-star"
+          ></i>
+        </h5>
+        <p class="m-0">
+          <small>
+            <i>{{ actor.age }}</i>
+          </small>
+        </p>
+
+        <p class="card-text">
+          {{ actor.description }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
