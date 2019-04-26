@@ -1,4 +1,4 @@
-<div *ngFor="let actor of actors" class="d-inline-flex ml-3 mt-3">
+<div *ngFor="let actor of actors" class="d-inline-flex card-group ml-3 mt-3">
   <div class="col-3">
     <div class="card" style="width: 19rem;">
       <img
@@ -10,14 +10,10 @@
         <h5 class="card-title m-0">
           {{ actor.name }}
           <i
-            *ngIf="actorsService.isFavorite(actor.id) === false"
-            (click)="actorsService.toggleFavorites(actor)"
-            class="far fa-star"
-          ></i>
-          <i
-            *ngIf="actorsService.isFavorite(actor.id) === true"
-            (click)="actorsService.toggleFavorites(actor)"
-            class="fas fa-star"
+            (click)="actorsService.toggleFavorite(actor)"
+            class="{{
+              actorsService.isFavorite(actor.id) ? 'fas' : 'far'
+            }} fa-star"
           ></i>
         </h5>
         <p class="m-0">

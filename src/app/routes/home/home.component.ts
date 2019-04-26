@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { actors } from '../data/actors';
-import { ActorsService } from '../actors.service';
+import { actors } from '../../data/actors';
+import { ActorsService } from '../../actors.service';
 
 @Component({
   selector: 'app-home',

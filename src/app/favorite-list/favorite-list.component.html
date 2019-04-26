@@ -1,6 +1,19 @@
 <div>
-  liste d'acteurs preferes <br />
-  liste d'acteurs preferes <br />
-  liste d'acteurs preferes <br />
-  liste d'acteurs preferes <br />
+  <div class="mt-5" *ngIf="actorsService.favorites.length === 0">
+    <em>Veuillez choisir vos acteurs favoris</em>
+  </div>
+  <div class="mt-5" *ngIf="actorsService.favorites.length !== 0">
+    <em>Vous avez {{ actorsService.favorites.length }} acteurs favoris</em>
+    <ul class="list-group mt-3">
+      <li
+        class="list-group-item d-inline-flex align-items-center justify-content-between"
+        *ngFor="let actor of actorsService.favorites"
+      >
+        {{ actor.name }}
+        <button class="btn btn-danger btn-sm" (click)="confirm(actor)">
+          [X]
+        </button>
+      </li>
+    </ul>
+  </div>
 </div>
